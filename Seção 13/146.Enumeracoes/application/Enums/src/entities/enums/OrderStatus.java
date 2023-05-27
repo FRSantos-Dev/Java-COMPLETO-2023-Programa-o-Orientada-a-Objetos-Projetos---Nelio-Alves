@@ -1,2 +1,5 @@
-package entities.enums;public class OrderStatus {
+package entities.enums;
+
+public class OrderStatus {
+
 }
