@@ -16,7 +16,7 @@ public class App{
 
         List<Employees> list = new ArrayList<>();//Criando a lista
 
-        System.out.println("Entre o número de Funcionários: ");
+        System.out.print("Entre o número de Funcionários: ");
         int n = sc.nextInt();
 
         for(int i = 1; i < n; i++){
@@ -35,15 +35,20 @@ public class App{
             double additionalCharge = sc.nextDouble();
             //Employees emp = new OutsourcedEmployee(name, null, null, null);//Instanciando o funcionário terceirizado
             //list.add(emp);//adicionando o funcionário na lista
-            list.add(new OutsourcedEmployee(name, null, null, null));
+            list.add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
         }
         else{//se não for terceirizado
             //Employees emp = new Employees(name, hours, valuePerHour);//Instanciando o funcionário--Classe emp não é necessário, pode ser feito direto.
             //list.add(emp);//adicionando o funcionário na lista
-            list.add(new Employees(name, null, null))
+            list.add(new Employees(name, hours, valuePerHour));
         }
     }
 
+    System.out.println();
+    System.out.println("Pagamentos: ");
+    for(Employees emp : list){//para cada funcionário na lista
+        System.out.println(emp.getName() + " - $ " + String.format("%.2f", emp.payment()));//imprime o nome e o pagamento
         sc.close();
+        }
     }
 }
